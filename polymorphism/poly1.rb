@@ -33,3 +33,34 @@
   # Result 1
   # 2
 
+class Poly
+
+  def show
+      puts "enter value of a"
+      @a= Integer(gets)
+      puts "enter value of b"
+      @b= Integer(gets)
+  end   
+end
+
+class Addition<Poly
+
+  def add
+    show
+    @c=@a+@b
+    puts "#{@c}"
+  end
+end
+
+class Concat<Poly
+
+    def con
+      show
+      print "#{@a}#{@b}" "\n"
+    end
+end
+
+a=Addition.new
+a.add
+c=Concat.new
+c.con

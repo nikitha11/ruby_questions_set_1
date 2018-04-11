@@ -7,7 +7,7 @@
 # Fix the below code such that .
 # 1. When asked for firstName it should give their son's name.
 # 2. When asked for secondName it should only give the mothers name.
-# 3. when asked for lastName it should only give the mothers name.
+# 3. when asked for lastName it should only give the father name.
 # 4. when asked for fullName it should give 'Bruce Martha Thomas'.
 
 
@@ -30,52 +30,41 @@
 #                        Thomas
 
 
-Class Father  
-  def initialize  
-    puts 'I am the Father.'  
-  end  
-  
-  # define fatherName --> father name is 'Thomas' . 
-end  
+class Father
 
-
-Class Mother  
-  def initialize  
-    puts 'I am the Mother.'  
-  end
-
-  # define motherName -> mother's name is Martha
-
-end  
-
-# Class Son inherits his last name from his Father  
-Class Son < Father 
-  def firstName  
-    puts "My name is Bruce"  
-  end
-
-  # define lastName --> last name should be father's name
-
-  def fullName
-    # Print 'My name is Bruce Martha Thomas'
-    Print firstName motherName fatherName 
-  end
+    def fa
+      @lastname="thomas"
+      puts "lastName: #{@lastname}"
+    end
 end
 
+class Mother<Father
 
-# Class Son is sub-Class of Mother   
-Class Son < Mother
-  def firstName  
-    puts 'My name is Bruce Wayne'  
-  end 
-
-  # define secondName --> second name should be Mother's name
-
-  def fullName
-    # Print 'My name is Bruce Martha Thomas'
-    puts firstName secondName lastName
-  end
+    def ma
+      @secondName="martha"
+      puts "secname:#{@secondName}"
+    end
 end
 
-# instantiate an object and print his firstName, secondName, lastName fullName.
+class Son<Mother
 
+    def sn
+      @firstname= "brunce"
+      puts "firstnam:#{@firstname}"
+    end
+end
+
+class Fullname<Son
+  def a
+    sn
+    ma
+    fa
+    puts "fullname: My name is #{@firstname} #{@secondName} #{@lastname}"
+end
+end
+
+c=Fullname.new
+c.a
+
+
+# multilevel inheritance....where complete add shd be concatinated from rest 3.....so here v hv to use multilevel only 
